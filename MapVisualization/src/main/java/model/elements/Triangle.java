@@ -13,4 +13,8 @@ public class Triangle {
 		points[1] = new Vector3D(copy.points[1]);
 		points[2] = new Vector3D(copy.points[2]);
 	}
+	@Override
+	public String toString() {
+		return points[0]+" , "+points[1]+" , "+points[2];
+	}
 }

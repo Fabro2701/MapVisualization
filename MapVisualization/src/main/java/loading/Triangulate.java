@@ -15,7 +15,7 @@ import model.Vector3D;
 import model.elements.Triangle;
 
 public class Triangulate {
-	public static List<Triangle>convert(String filename){
+	public static List<Triangle>convert(String filename, float factor){
 		List<Triangle> tris = new ArrayList<Triangle>();
 		BufferedImage img = null;
 		
@@ -36,9 +36,9 @@ public class Triangulate {
 					Vector3D p2 = new Vector3D(x,y+1,new Color(img.getRGB(x, y+1)).getGreen()/255f);
 					tris.add(new Triangle(p0,p1,p2));
 					
-					Vector3D p10 = new Vector3D(x+1,y,new Color(img.getRGB(x+1, y)).getGreen()/255f);
-					Vector3D p11 = new Vector3D(x,y+1,new Color(img.getRGB(x, y+1)).getGreen()/255f);
-					Vector3D p12 = new Vector3D(x+1,y+1,new Color(img.getRGB(x+1, y+1)).getGreen()/255f);
+					Vector3D p10 = new Vector3D(x+1,y,factor * new Color(img.getRGB(x+1, y)).getGreen()/255f);
+					Vector3D p11 = new Vector3D(x,y+1,factor * new Color(img.getRGB(x, y+1)).getGreen()/255f);
+					Vector3D p12 = new Vector3D(x+1,y+1,factor * new Color(img.getRGB(x+1, y+1)).getGreen()/255f);
 					tris.add(new Triangle(p10,p11,p12));
 					System.out.print(p2.z+" ");
 				}
@@ -56,6 +56,6 @@ public class Triangulate {
 		return image2;
 	}
 	public static void main(String args[]) {
-		Triangulate.convert("elevation");
+		Triangulate.convert("elevation", 5f);
 	}
 }
