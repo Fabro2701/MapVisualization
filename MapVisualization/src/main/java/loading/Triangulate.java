@@ -40,15 +40,14 @@ public class Triangulate {
 					Vector3D p1 = new Vector3D(x+1,y,factor * new Color(img.getRGB(x+1, y)).getGreen()/255f);
 					Vector3D p2 = new Vector3D(x,y+1,factor * new Color(img.getRGB(x, y+1)).getGreen()/255f);
 					Triangle t1 = new Triangle(p2,p1,p0);
-					t1.col = new Color(att.getRGB(x, y));
+					t1.col = new Color(new Color(att.getRGB(x, y)).getRed(),0,0,200);
 					tris.add(t1);
-					System.out.println(t1.col);
 					
 					Vector3D p10 = new Vector3D(x+1,y,factor * new Color(img.getRGB(x+1, y)).getGreen()/255f);
 					Vector3D p11 = new Vector3D(x,y+1,factor * new Color(img.getRGB(x, y+1)).getGreen()/255f);
 					Vector3D p12 = new Vector3D(x+1,y+1,factor * new Color(img.getRGB(x+1, y+1)).getGreen()/255f);
 					Triangle t2 = new Triangle(p10,p11,p12);
-					t2.col = new Color(att.getRGB(x, y));
+					t2.col = new Color(new Color(att.getRGB(x, y)).getRed(),0,0,200);
 					tris.add(t2);
 				}
 			}System.out.println();

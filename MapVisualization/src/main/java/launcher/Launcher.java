@@ -355,7 +355,7 @@ camera: (-0.40235126,-0.26771787,4.376751,1.0)
 				//System.out.println(t.col);
 				g2.setColor(t.col);
 				g2.fillPolygon(new int[] {(int) t.points[0].x,(int)t.points[1].x,(int)t.points[2].x}, new int[] {(int)t.points[0].y,(int)t.points[1].y,(int)t.points[2].y}, 3);
-				g2.setColor(Color.white);
+				g2.setColor(Color.green);
 				g2.drawPolygon(new int[] {(int) t.points[0].x,(int)t.points[1].x,(int)t.points[2].x}, new int[] {(int)t.points[0].y,(int)t.points[1].y,(int)t.points[2].y}, 3);
 
 			}
