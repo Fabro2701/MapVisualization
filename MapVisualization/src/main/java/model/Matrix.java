@@ -92,14 +92,16 @@ public class Matrix {
 	public static Matrix Matrix_PointAt(Vector3D pos, Vector3D target, Vector3D up)
 	{
 		// Calculate new forward direction
-		Vector3D newForward = target.sub(pos).normal();
-
+		Vector3D newForward = Vector3D.sub(target, pos);
+		newForward = Vector3D.normal(newForward);
+		
 		// Calculate new Up direction
-		Vector3D a = newForward.mul(up.dotProduct(newForward));
-		Vector3D newUp = up.sub(a).normal();
+		Vector3D a = Vector3D.mul(newForward, Vector3D.dotProduct(up, newForward));
+		Vector3D newUp = Vector3D.sub(up, a);
+		newUp = Vector3D.normal(newUp);
 
 		// New Right direction is easy, its just cross product
-		Vector3D newRight = newUp.crossProduct(newForward);
+		Vector3D newRight = Vector3D.crossProduct(newUp, newForward);
 
 		// Construct Dimensioning and Translation Matrix	
 		Matrix matrix = new Matrix(4,4);
